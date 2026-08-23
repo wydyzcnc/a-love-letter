@@ -6,7 +6,7 @@
         <flexbox>
           <flexbox-item :span="3">
             <div class="item-icon">
-              <img src="../../../assets/images/timg.png" />
+              <img src="../assets/images/timg.png" />
             </div>
           </flexbox-item>
 
@@ -22,7 +22,8 @@
                   <!-- <router-link :to="'/memberHome/' + item.id + '/' + 'id' ">
                     <x-button mini type="warn" action-type='button'>查看</x-button>
                   </router-link> -->
-                  <x-button mini type="warn" action-type='button' @click.native="makeReserve1(item.id, index)">查看</x-button>
+                  <x-button mini type="warn" action-type='button'
+                    @click.native="makeReserve1(item.id, index)">查看</x-button>
                 </flexbox-item>
               </flexbox>
             </div>
@@ -38,8 +39,8 @@
 </template>
 
 <script>
-import personalCourses from "./js/personalCourses.js"
-export default personalCourses
+import BuBuListPage from "./js/BuBuListPage.js"
+export default BuBuListPage
 </script>
 
 <style>

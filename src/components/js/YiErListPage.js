@@ -3,7 +3,7 @@ import { Tab, TabItem, XImg, dateFormat, XButton, Flexbox, FlexboxItem, InlineCa
 export default {
   mounted() {
     this.$store.commit('UPDATE_PAGE_TITLE', '一二的声音')
-    this.loadCourses();    // 加载列表
+    this.getList();    // 加载列表
   },
   data() {
     let data = {
@@ -20,10 +20,10 @@ export default {
 
   methods: {
     // 获取列表数据
-    loadCourses() {
+    getList() {
       let self = this;
       this.baseAjax({
-        url: '/static/basicData/groupCourse.json',
+        url: '/static/basicData/yierList.json',
         params: {
           categoryId: self.coursesQueryData.categoryId,
         },

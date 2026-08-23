@@ -83,7 +83,8 @@ export default {
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-  white-space: pre-line; /* 保留换行符 */
+  white-space: pre-line;
+  /* 保留换行符 */
   margin: 0;
 }
 
@@ -93,6 +94,7 @@ export default {
     opacity: 0;
     transform: translateY(30px) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -106,9 +108,11 @@ export default {
     padding: 20px 22px;
     border-radius: 16px;
   }
+
   .title {
     font-size: 1.6rem;
   }
+
   .description {
     font-size: 0.9rem;
     line-height: 1.7;
@@ -119,9 +123,11 @@ export default {
   .content {
     padding: 16px 18px;
   }
+
   .title {
     font-size: 1.3rem;
   }
+
   .description {
     font-size: 0.8rem;
   }
@@ -132,15 +138,17 @@ export default {
   .page-container {
     height: 100vh;
   }
+
   .content {
     max-width: 60%;
     padding: 36px 48px;
   }
+
   .title {
     font-size: 2.8rem;
   }
+
   .description {
     font-size: 1.2rem;
   }
-}
-</style>
+}</style>

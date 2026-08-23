@@ -46,8 +46,8 @@
 export default {
   name: 'mine',
   mounted() {
-		this.$store.commit('UPDATE_PAGE_TITLE', '首页');
-	},
+    this.$store.commit('UPDATE_PAGE_TITLE', '首页');
+  },
   data() {
     return {
       backgroundImage: '/static/pic/indexPic.jpg',
@@ -55,8 +55,8 @@ export default {
       description: '每一帧风景，都是时光赠予的诗篇。\n愿你在喧嚣中，寻得内心的宁静。',
       menuItems: [
         {
-          label: '俄罗斯方块',
-          icon: '🏠',
+          label: '音乐',
+          icon: '🎵',
           action: 'home',
           route: '/home'
         },
@@ -537,4 +537,5 @@ export default {
     background: #f0f2f5;
     transform: scale(0.97);
   }
-}</style>
+}
+</style>

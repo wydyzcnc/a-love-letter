@@ -58,9 +58,16 @@
 			}"></div>
 		</div>
 
+		<!-- 播放音频按钮 -->
+		<div class="play-btn-wrapper" v-if="showPlayButton">
+			<button class="play-btn" @click="playAudio">
+				<span class="play-icon">🎵</span>
+				<span class="play-text">点击播放音频</span>
+			</button>
+		</div>
+
 		<!-- 背景音乐层 -->
-		<!-- <audio ref="bgMusic" :src="objectData.musicSrc" preload="auto" @ended="handleMusicEnded"> -->
-		<audio ref="bgMusic" src="/static/mp3/qixi.mp3" preload="auto" @ended="handleMusicEnded">
+		<audio ref="bgMusic" :src="objectData.musicSrc" preload="auto" @ended="handleMusicEnded">
 			您的浏览器不支持音频播放。
 		</audio>
 
@@ -105,16 +112,20 @@ export default {
 				title: '', // 标题
 				fullMessage: '', // 祝福语内容
 				musicSrc: '', // 音频路径
-			}
+			},
+
+			// 音频控制
+			isAudioPlaying: false,
+			showPlayButton: true,
 		}
 	},
 
 	methods: {
 		loadDetail() {
 			let self = this;
-			let targetId = this.$route.params.activityId;
+			let targetId = this.$route.params.Id;
 			this.baseAjax({
-				url: '/static/basicData/activityDetail.json',
+				url: '/static/basicData/lfxDetail.json',
 				showLoading: true,
 				success: function (data) {
 					// 使用find方法找到id对应的对象
@@ -123,23 +134,56 @@ export default {
 
 					self.newTitleName() //设置标题
 
-					// 播放音频
-					self.startScene();
+					// 启动打字效果
+					setTimeout(() => {
+						self.typeMessage();
+					}, 1000);
 				}
 			})
 		},
 
 		newTitleName: function () {
-			this.$store.commit('UPDATE_PAGE_TITLE', this.objectData.title);
+			this.$store.commit('UPDATE_PAGE_TITLE', this.objectData.pageTitle);
 		},
 
-		startScene() { // 音频播放
+		// 播放音频按钮点击事件
+		playAudio() {
 			const audio = this.$refs.bgMusic;
-			audio.play().catch(e => console.log('音频播放需用户交互:', e));
+			if (!audio) {
+				console.error('音频元素不存在');
+				return;
+			}
 
-			setTimeout(() => {
-				this.typeMessage();
-			}, 1500);
+			// 如果已经在播放，不做任何操作
+			if (this.isAudioPlaying) {
+				return;
+			}
+
+
+			// 重新加载确保音频准备就绪
+			if (audio.readyState < 2) {
+				audio.load();
+			}
+
+			// iOS 设备需要解除静音
+			audio.muted = false;
+
+			const playPromise = audio.play();
+			if (playPromise !== undefined) {
+				playPromise.then(() => {
+					this.isAudioPlaying = true;
+					this.showPlayButton = false;
+				}).catch(error => {
+					this.isAudioPlaying = false;
+
+					// 播放失败时显示提示
+					this.$toast && this.$toast({
+						message: '播放失败，请重试',
+						position: 'middle',
+						duration: 1500
+					});
+				});
+			}
 		},
 
 		typeMessage() {
@@ -180,7 +224,7 @@ export default {
 				return;
 			}
 
-			const currentBatch = this.fireworkQueue.shift();
+			this.fireworkQueue.shift();
 			this.launchSingleFirework();
 
 			// 间隔600毫秒发射下一发，让烟花形成连绵不断的感觉
@@ -571,58 +615,151 @@ export default {
 	}
 }
 
-/* 启动按钮 */
-.start-btn {
+
+/* 播放按钮样式 - 优雅浪漫设计 */
+.play-btn-wrapper {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.6);
-	z-index: 100;
-	cursor: pointer;
+	top: 20vh;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 30;
+	animation: btnFloat 2s ease-in-out infinite;
 }
 
-.start-btn span {
-	display: block;
-	padding: 16px 32px;
+@keyframes btnFloat {
+
+	0%,
+	100% {
+		transform: translateX(-50%) translateY(0px);
+	}
+
+	50% {
+		transform: translateX(-50%) translateY(-8px);
+	}
+}
+
+.play-btn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 32px;
 	background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 	color: #fff;
+	border: none;
 	border-radius: 50px;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: bold;
-	letter-spacing: 2px;
-	box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
-	animation: pulseBtn 1.5s infinite;
+	cursor: pointer;
+	box-shadow: 0 8px 30px rgba(245, 87, 108, 0.5);
+	transition: all 0.3s ease;
+	letter-spacing: 1px;
+	position: relative;
+	overflow: hidden;
 }
 
-@keyframes pulseBtn {
-	0% {
-		transform: scale(1);
-		box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.7);
+/* 按钮光效 */
+.play-btn::before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+	animation: btnShine 3s ease-in-out infinite;
+}
+
+@keyframes btnShine {
+
+	0%,
+	100% {
+		transform: translate(-30%, -30%) scale(0.8);
+		opacity: 0;
 	}
 
-	70% {
-		transform: scale(1.05);
-		box-shadow: 0 0 0 15px rgba(245, 87, 108, 0);
+	50% {
+		transform: translate(30%, 30%) scale(1.2);
+		opacity: 1;
 	}
+}
 
+.play-btn:hover {
+	transform: scale(1.05);
+	box-shadow: 0 12px 40px rgba(245, 87, 108, 0.7);
+}
+
+.play-btn:active {
+	transform: scale(0.95);
+}
+
+.play-btn .play-icon {
+	font-size: 1.4rem;
+	animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+	0%,
 	100% {
 		transform: scale(1);
-		box-shadow: 0 0 0 0 rgba(245, 87, 108, 0);
+	}
+
+	50% {
+		transform: scale(1.2);
 	}
 }
 
-.fade-btn-enter-active,
-.fade-btn-leave-active {
-	transition: opacity 0.8s;
+.play-btn .play-text {
+	font-size: 1rem;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.fade-btn-enter,
-.fade-btn-leave-to {
+/* 按钮消失动画 */
+.play-btn-wrapper {
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.play-btn-wrapper.fade-out {
 	opacity: 0;
+	transform: translateX(-50%) translateY(20px);
+	pointer-events: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+	.play-btn {
+		padding: 12px 24px;
+		font-size: 0.9rem;
+	}
+
+	.play-btn .play-icon {
+		font-size: 1.2rem;
+	}
+
+	.message-box {
+		bottom: 22vh;
+		padding: 16px 20px;
+	}
+
+	.msg-content h3 {
+		font-size: 1rem;
+	}
+
+	.msg-content p {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.play-btn {
+		padding: 10px 20px;
+		font-size: 0.8rem;
+		gap: 8px;
+	}
+
+	.play-btn .play-icon {
+		font-size: 1rem;
+	}
+
 }
 </style>

@@ -20,7 +20,7 @@
       <x-dialog v-model="showSuccess" class="d-box" @click="showSuccess = false">
         <div @click="showSuccess = false">
           <div class="d-icon">
-            <img src="../../../assets/images/dialog-success.png">
+            <img src="../assets/images/dialog-success.png">
           </div>
           <p class="d-title">功能还在建设中哦，敬请期待~</p>
         </div>
@@ -29,7 +29,7 @@
       <x-dialog v-model="showSorry" class="d-box">
         <div @click="showSorry = false">
           <div class="d-icon">
-            <img src="../../../assets/images/dialog-sorry.png">
+            <img src="../assets/images/dialog-sorry.png">
           </div>
           <p class="d-title">人数已满，下次记得早点预约噢！</p>
         </div>
@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import groupCourses from "./js/groupCourses.js"
-export default groupCourses
+import YiErListPage from "./js/YiErListPage.js"
+export default YiErListPage
 </script>
 
 <style>

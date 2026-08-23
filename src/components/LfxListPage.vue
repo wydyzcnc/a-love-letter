@@ -1,7 +1,7 @@
 <template>
   <div class="activityIndex page">
     <div class="activeItem" v-for="item in itemList">
-      <router-link :to="'/activityDetail/' + item.id">
+      <router-link :to="'/lfxDetail/' + item.id">
         <div class="newsImg">
           <img :src="item.newsImg" />
         </div>
@@ -23,8 +23,8 @@
 import { Tabbar, TabbarItem, XHeader, XButton, XImg } from 'vux'
 export default {
   mounted() {
-    this.$store.commit('UPDATE_PAGE_TITLE', '写给LFX的祝福语')
-    this.loadLatest();
+    this.$store.commit('UPDATE_PAGE_TITLE', '祝福语')
+    this.getList();
   },
   data() {
     return {
@@ -32,10 +32,10 @@ export default {
     }
   },
   methods: {
-    loadLatest() {
+    getList() {
       let self = this;
       this.baseAjax({
-        url: '/static/basicData/latestActivity.json',
+        url: '/static/basicData/lfxList.json',
         showLoading: true,
         success: function (data) {
           self.itemList = data.returnObject
@@ -70,7 +70,7 @@ export default {
   width: 91%;
 }
 
- .activityIndex .activeItem .title {
+.activityIndex .activeItem .title {
   font-size: 20px;
   font-weight: 600;
   overflow: hidden;
@@ -98,8 +98,6 @@ export default {
   height: 12px;
   padding-right: 5px;
 }
-
-
 </style>
 
 
