@@ -1,6 +1,5 @@
 <template>
   <div class="memberHome" style="height: 100%">
-  
     <view-box ref="viewbox" body-padding-top="46px">
       <div class="vux-demo-header-box" slot="header">
         <x-header :left-options="{ backText: '' }" v-show="headShow">{{ pageTitle }}</x-header>
