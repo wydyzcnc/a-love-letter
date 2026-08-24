@@ -23,11 +23,14 @@
 
       <!-- 菜单列表 -->
       <ul class="menu-list">
-        <li v-for="(item, index) in menuItems" :key="index" @click="handleMenuClick(item)"
-          :class="{ 'active-menu': activeMenu === item.action }">
-          <span class="menu-icon">{{ item.icon }}</span>
-          <span class="menu-label">{{ item.label }}</span>
-          <span class="menu-arrow">›</span>
+        <li v-for="(item, index) in menuItems" :key="index" class="active-menu">
+          <router-link :to="item.route">
+            <span>
+              <span class="menu-icon">{{ item.icon }}</span>
+              <span class="menu-label">{{ item.label }}</span>
+              <span class="menu-arrow">›</span>
+            </span>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -55,32 +58,31 @@ export default {
       description: '每一帧风景，都是时光赠予的诗篇。\n愿你在喧嚣中，寻得内心的宁静。',
       menuItems: [
         {
-          label: '音乐',
+          label: '一二布布版音乐',
           icon: '🎵',
-          action: 'home',
-          route: '/home'
+          action: 'music-player',
+          route: '/music-player'
         },
         {
-          label: '贪吃蛇游戏',
-          icon: '🔍',
-          action: 'explore',
-          route: '/explore'
+          label: '贪吃小蛇游戏',
+          icon: '🐍',
+          action: 'snake-game',
+          route: '/snake-game'
         },
-        {
-          label: '消消乐',
-          icon: '👤',
-          action: 'profile',
-          route: '/profile'
-        },
-        {
-          label: '设置',
-          icon: '⚙️',
-          action: 'settings',
-          route: '/settings'
-        }
+        // {
+        //   label: '消消乐',
+        //   icon: '👤',
+        //   action: 'profile',
+        //   route: '/profile'
+        // },
+        // {
+        //   label: '设置',
+        //   icon: '⚙️',
+        //   action: 'settings',
+        //   route: '/settings'
+        // }
       ],
       isSidebarOpen: false,
-      activeMenu: 'home',
       toastMessage: '',
       toastTimer: null
     };
@@ -112,18 +114,7 @@ export default {
       this.isSidebarOpen = false;
       document.body.style.overflow = '';
     },
-    handleMenuClick(item) {
-      this.activeMenu = item.action;
-      this.showToast(`功能还在建设中...`);
-      // this.showToast(`正在跳转到「${item.label}」...`);
 
-      setTimeout(() => {
-        // this.showToast(`已进入「${item.label}」页面`);
-      }, 800);
-
-      this.closeSidebar();
-      this.$emit('menu-click', item);
-    },
     showToast(message) {
       if (this.toastTimer) {
         clearTimeout(this.toastTimer);

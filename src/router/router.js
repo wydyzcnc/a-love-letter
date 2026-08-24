@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import IndexPage from '@/components/IndexPage'
-import mainPage from '@/components/mainPage'
+import MainPage from '@/components/MainPage'
 import LfxListPage from '@/components//LfxListPage'
 import LfxDetailPage from '@/components/LfxDetailPage'
 import YiErListPage from '@/components/YiErListPage'
 import BuBuListPage from '@/components/BuBuListPage'
 import HomePage from '@/components/HomePage'
+import MusicPlayerPage from '@/components/MusicPlayerPage'
+import SnakeGamePage from '@/components/SnakeGamePage'
+
 
 Vue.use(VueRouter)
 
@@ -24,26 +27,26 @@ const router = new VueRouter({
 		},
 		{
 			path: '/',
-			name: 'mainPage',
-			component: mainPage,
+			name: 'MainPage',
+			component: MainPage,
 			children: [
 				{
-					path: '/lfxList',
+					path: '/lfx-list',
 					name: 'LfxListPage',
 					component: LfxListPage
 				},
 				{
-					path: '/lfxDetail/:Id',
+					path: '/lfx-detail/:Id',
 					name: 'LfxDetailPage',
 					component: LfxDetailPage
 				},
 				{
-					path: '/yierList',
+					path: '/yier-list',
 					name: 'YiErListPage',
 					component: YiErListPage
 				},
 				{
-					path: '/bubuList',
+					path: '/bubu-list',
 					name: 'BuBuListPage',
 					component: BuBuListPage
 				},
@@ -51,6 +54,16 @@ const router = new VueRouter({
 					path: '/love-lfx',
 					name: 'HomePage',
 					component: HomePage
+				},
+				{
+					path: '/music-player',
+					name: 'MusicPlayerPage',
+					component: MusicPlayerPage
+				},
+				{
+					path: '/snake-game',
+					name: 'SnakeGamePage',
+					component: SnakeGamePage
 				},
 			]
 		},

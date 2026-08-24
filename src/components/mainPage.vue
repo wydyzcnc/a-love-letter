@@ -12,15 +12,15 @@
       <router-view></router-view>
 
       <tabbar v-show="footerShow">
-        <tabbar-item link="/lfxList">
+        <tabbar-item link="/lfx-list">
           <img slot="icon" src="/static/svg/love_icon.svg">
           <span slot="label">LFX</span>
         </tabbar-item>
-        <tabbar-item link="/yierList">
+        <tabbar-item link="/yier-list">
           <img slot="icon" src="/static/svg/yier_icon.svg">
           <span slot="label">一二</span>
         </tabbar-item>
-        <tabbar-item link="/bubuList">
+        <tabbar-item link="/bubu-list">
           <img slot="icon" src="/static/svg/bubu_icon.svg">
           <span slot="label">布布</span>
         </tabbar-item>

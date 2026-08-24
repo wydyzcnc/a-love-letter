@@ -22,7 +22,7 @@
           <div class="d-icon">
             <img src="../assets/images/dialog-success.png">
           </div>
-          <p class="d-title">功能还在建设中哦，敬请期待~</p>
+          <p class="d-title">功能还在建设中哦，敬请期待</p>
         </div>
       </x-dialog>
 

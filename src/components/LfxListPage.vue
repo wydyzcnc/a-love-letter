@@ -1,7 +1,7 @@
 <template>
   <div class="activityIndex page">
     <div class="activeItem" v-for="item in itemList">
-      <router-link :to="'/lfxDetail/' + item.id">
+      <router-link :to="'/lfx-detail/' + item.id">
         <div class="newsImg">
           <img :src="item.newsImg" />
         </div>
