@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import IndexPage from '@/components/IndexPage'
-import MainPage from '@/components/MainPage'
+import MainHomePage from '@/components/MainHomePage'
 import LfxListPage from '@/components//LfxListPage'
 import LfxDetailPage from '@/components/LfxDetailPage'
 import YiErListPage from '@/components/YiErListPage'
@@ -27,8 +27,8 @@ const router = new VueRouter({
 		},
 		{
 			path: '/',
-			name: 'MainPage',
-			component: MainPage,
+			name: 'MainHomePage',
+			component: MainHomePage,
 			children: [
 				{
 					path: '/lfx-list',
