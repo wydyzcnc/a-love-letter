@@ -24,7 +24,7 @@
                     </p>
                 </div>
                 <p class="closing">—— 永远爱你的一二</p>
-                <p class="date">2026.08.26</p>
+                <p class="date">{{ resultData.date }}</p>
             </div>
             <div class="music-control" @click.stop="toggleMusic">
                 <span v-if="isPlaying">⏸️ 暂停音频</span>
@@ -57,7 +57,8 @@ export default {
             isComponentMounted: false,
 
             // 内容相关
-            resultData: {}
+            resultData: {},
+            poemLines: ''
         }
     },
     mounted() {
@@ -65,7 +66,7 @@ export default {
         this.isComponentMounted = true;
 
         // 设置页面标题
-        this.$store.commit('UPDATE_PAGE_TITLE', this.resultData.letterTitle);
+        this.$store.commit('UPDATE_PAGE_TITLE', this.resultData.title);
 
         // 解析情诗内容
         this.poemLines = this.parsePoemLines(this.resultData.poemLines);

@@ -4,7 +4,8 @@
     <div class="classItems">
       <div class="activeItem" v-for="(item, index) in courseList" :key="index">
         <router-link
-          :to="{ path: '/yier_letter', query: { title: item.title, letterTitle: item.letterTitle, musicUrl: item.musicUrl, poemLines: item.poemLines } }">
+          :to="{ path: '/yier_letter',
+           query: { title: item.title, letterTitle: item.letterTitle, musicUrl: item.musicUrl, poemLines: item.poemLines, date: item.date } }">
           <span>
             <img :src="item.img" />
             <div class='sbottom'>
@@ -81,7 +82,8 @@ export default {
 }
 
 .groupCourses .activeItem .title {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

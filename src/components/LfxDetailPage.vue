@@ -67,7 +67,7 @@
 		</div>
 
 		<!-- 背景音乐层 -->
-		<audio ref="bgMusic" :src="resultData.musicSrc" preload="auto" @ended="handleMusicEnded">
+		<audio ref="bgMusic" :src="resultData.musicUrl" preload="auto" @ended="handleMusicEnded">
 			您的浏览器不支持音频播放。
 		</audio>
 
@@ -88,12 +88,15 @@ export default {
 		}));
 
 		this.resultData = this.$route.query; // 赋值
-		this.$store.commit('UPDATE_PAGE_TITLE', this.resultData.pageTitle);
+		this.$store.commit('UPDATE_PAGE_TITLE', this.resultData.title);
 
 		// 启动打字效果
-		setTimeout(() => {
-			this.typeMessage();
-		}, 1000);
+		setTimeout(() => this.typeMessage(), 1000);
+
+		// 自动播放音频
+		this.$nextTick(() => {
+			this.playAudio();
+		});
 	},
 
 	beforeDestroy() {
@@ -119,7 +122,7 @@ export default {
 
 			// 音频控制
 			isAudioPlaying: false,
-			showPlayButton: true,
+			showPlayButton: false,
 		}
 	},
 
