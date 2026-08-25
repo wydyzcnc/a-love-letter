@@ -9,6 +9,7 @@ import BuBuListPage from '@/components/BuBuListPage'
 import HomePage from '@/components/HomePage'
 import MusicPlayerPage from '@/components/MusicPlayerPage'
 import SnakeGamePage from '@/components/SnakeGamePage'
+import YiErLetterPage from '@/components/YiErLetterPage'
 
 
 Vue.use(VueRouter)
@@ -36,7 +37,7 @@ const router = new VueRouter({
 					component: LfxListPage
 				},
 				{
-					path: '/lfx-detail/:Id',
+					path: '/lfx-detail',
 					name: 'LfxDetailPage',
 					component: LfxDetailPage
 				},
@@ -64,6 +65,11 @@ const router = new VueRouter({
 					path: '/snake-game',
 					name: 'SnakeGamePage',
 					component: SnakeGamePage
+				},
+				{
+					path: '/yier_letter',
+					name: 'YiErLetterPage',
+					component: YiErLetterPage
 				},
 			]
 		},

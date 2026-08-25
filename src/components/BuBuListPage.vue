@@ -15,15 +15,6 @@
               <flexbox>
                 <flexbox-item>
                   <div>{{ item.name }}</div>
-                  <p class="item-desc">{{ item.description }}</p>
-                </flexbox-item>
-
-                <flexbox-item :span="4">
-                  <!-- <router-link :to="'/memberHome/' + item.id + '/' + 'id' ">
-                    <x-button mini type="warn" action-type='button'>查看</x-button>
-                  </router-link> -->
-                  <x-button mini type="warn" action-type='button'
-                    @click.native="makeReserve1(item.id, index)">查看</x-button>
                 </flexbox-item>
               </flexbox>
             </div>
@@ -39,9 +30,48 @@
 </template>
 
 <script>
-import BuBuListPage from "./js/BuBuListPage.js"
-export default BuBuListPage
+import { Tab, TabItem, XImg, XButton, Flexbox, FlexboxItem, InlineCalendar, Popup } from 'vux';
+
+export default {
+  mounted() {
+    this.$store.commit('UPDATE_PAGE_TITLE', '布布的来信');
+
+    //加载列表
+    this.getList();
+  },
+
+  data() {
+    let data = {
+      courseList: '',
+    }
+
+    return data
+  },
+
+  methods: {
+    // 获取列表
+    getList() {
+      let self = this;
+      this.baseAjax({
+        url: '/static/basicData/bubuList.json',
+        params: {
+          date: ''
+        },
+        showLoading: true,
+        success: function (data) {
+          console.log(data)
+          self.courseList = data.returnObject;
+        }
+      })
+    }
+  },
+
+  components: {
+    Tab, TabItem, XImg, XButton, Flexbox, FlexboxItem, InlineCalendar, Popup
+  }
+}
 </script>
+
 
 <style>
 .personalCourses .activeItem img {

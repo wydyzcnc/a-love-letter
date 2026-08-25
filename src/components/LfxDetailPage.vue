@@ -16,8 +16,8 @@
 
 		<!-- 角色层 -->
 		<div class="characters-wrapper">
-			<img :src="objectData.bgMsgL" class="character male" alt="布布" />
-			<img :src="objectData.bgMsgR" class="character female" alt="一二" />
+			<img :src="resultData.bgMsgL" class="character male" alt="布布" />
+			<img :src="resultData.bgMsgR" class="character female" alt="一二" />
 			<div class="hearts-container">
 				<div class="heart heart1">❤️</div>
 				<div class="heart heart2">❤️</div>
@@ -29,7 +29,7 @@
 		<transition name="fade-msg">
 			<div class="message-box">
 				<div class="msg-content">
-					<h3>💌 {{ this.objectData.title }}</h3>
+					<h3>💌 {{ this.resultData.title }}</h3>
 					<p>{{ displayText }}</p>
 					<span class="cursor" v-if="!isTypingComplete">|</span>
 				</div>
@@ -67,7 +67,7 @@
 		</div>
 
 		<!-- 背景音乐层 -->
-		<audio ref="bgMusic" :src="objectData.musicSrc" preload="auto" @ended="handleMusicEnded">
+		<audio ref="bgMusic" :src="resultData.musicSrc" preload="auto" @ended="handleMusicEnded">
 			您的浏览器不支持音频播放。
 		</audio>
 
@@ -87,7 +87,13 @@ export default {
 			duration: 1.5 + Math.random() * 2
 		}));
 
-		this.loadDetail(); // 加载数据
+		this.resultData = this.$route.query; // 赋值
+		this.$store.commit('UPDATE_PAGE_TITLE', this.resultData.pageTitle);
+
+		// 启动打字效果
+		setTimeout(() => {
+			this.typeMessage();
+		}, 1000);
 	},
 
 	beforeDestroy() {
@@ -108,11 +114,8 @@ export default {
 			flashes: [],
 			fireworksTimer: null,
 			fireworkQueue: [], // 用于逐次发射烟花
-			objectData: {
-				title: '', // 标题
-				fullMessage: '', // 祝福语内容
-				musicSrc: '', // 音频路径
-			},
+			// 内容相关
+			resultData: {},
 
 			// 音频控制
 			isAudioPlaying: false,
@@ -121,31 +124,6 @@ export default {
 	},
 
 	methods: {
-		loadDetail() {
-			let self = this;
-			let targetId = this.$route.params.Id;
-			this.baseAjax({
-				url: '/static/basicData/lfxDetail.json',
-				showLoading: true,
-				success: function (data) {
-					// 使用find方法找到id对应的对象
-					const result = data.returnObject.find(item => item.id == targetId);
-					self.objectData = result // 赋值
-
-					self.newTitleName() //设置标题
-
-					// 启动打字效果
-					setTimeout(() => {
-						self.typeMessage();
-					}, 1000);
-				}
-			})
-		},
-
-		newTitleName: function () {
-			this.$store.commit('UPDATE_PAGE_TITLE', this.objectData.pageTitle);
-		},
-
 		// 播放音频按钮点击事件
 		playAudio() {
 			const audio = this.$refs.bgMusic;
@@ -193,8 +171,8 @@ export default {
 			const self = this;
 
 			function typing() {
-				if (index < self.objectData.fullMessage.length) {
-					self.displayText += self.objectData.fullMessage[index];
+				if (index < self.resultData.fullMessage.length) {
+					self.displayText += self.resultData.fullMessage[index];
 					index++;
 					self.typingTimer = setTimeout(typing, 80);
 				} else {

@@ -3,45 +3,56 @@
 
     <div class="classItems">
       <div class="activeItem" v-for="(item, index) in courseList" :key="index">
-        <img :src="item.img" />
-        <div class='sbottom'>
-          <p class="title">{{ item.title }}</p>
-          <p class="time-line"><span class='time'>{{ item.date }}</span>
-          </p>
-        </div>
-
-        <div class="bookBtn">
-          <x-button mini type="warn" action-type='button' @click.native="makeReserve(item.id, index)">查看</x-button>
-        </div>
+        <router-link
+          :to="{ path: '/yier_letter', query: { title: item.title, letterTitle: item.letterTitle, musicUrl: item.musicUrl, poemLines: item.poemLines } }">
+          <span>
+            <img :src="item.img" />
+            <div class='sbottom'>
+              <p class="title">{{ item.title }}</p>
+              <p class="time-line"><span class='time'>{{ item.date }}</span>
+              </p>
+            </div>
+          </span>
+        </router-link>
       </div>
-    </div>
-
-    <div>
-      <x-dialog v-model="showSuccess" class="d-box" @click="showSuccess = false">
-        <div @click="showSuccess = false">
-          <div class="d-icon">
-            <img src="../assets/images/dialog-success.png">
-          </div>
-          <p class="d-title">功能还在建设中哦，敬请期待</p>
-        </div>
-      </x-dialog>
-
-      <x-dialog v-model="showSorry" class="d-box">
-        <div @click="showSorry = false">
-          <div class="d-icon">
-            <img src="../assets/images/dialog-sorry.png">
-          </div>
-          <p class="d-title">人数已满，下次记得早点预约噢！</p>
-        </div>
-      </x-dialog>
     </div>
 
   </div>
 </template>
 
 <script>
-import YiErListPage from "./js/YiErListPage.js"
-export default YiErListPage
+import { Tab, TabItem, XImg, XButton, Flexbox, FlexboxItem, InlineCalendar, Popup, XDialog } from 'vux';
+export default {
+  mounted() {
+    this.$store.commit('UPDATE_PAGE_TITLE', '一二的来信');
+
+    // 加载列表
+    this.getList();
+  },
+  data() {
+    return {
+      courseList: ''
+    }
+  },
+  methods: {
+    // 获取列表数据
+    getList() {
+      let self = this;
+      this.baseAjax({
+        url: '/static/basicData/yierList.json',
+        params: {},
+        showLoading: true,
+        success: function (data) {
+          self.courseList = data.returnObject;
+        }
+      })
+    },
+  },
+  components: {
+    Tab, TabItem, XImg, XButton, Flexbox, FlexboxItem, InlineCalendar, Popup, XDialog
+  }
+}
+
 </script>
 
 <style>
@@ -101,11 +112,6 @@ export default YiErListPage
   border-bottom: 3px solid #DD5858;
 }
 
-.groupCourses .bookBtn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-}
 
 .groupCourses .d-box .d-title {
   margin-bottom: 15px;

@@ -1,7 +1,8 @@
 <template>
   <div class="activityIndex page">
     <div class="activeItem" v-for="item in itemList">
-      <router-link :to="'/lfx-detail/' + item.id">
+      <router-link
+        :to="{ path: '/lfx-detail', query: { title: item.title, letterTitle: item.letterTitle, musicUrl: item.musicUrl, fullMessage: item.fullMessage, bgMsgL: item.bgMsgL, bgMsgR: item.bgMsgR } }">
         <div class="newsImg">
           <img :src="item.newsImg" />
         </div>
@@ -9,7 +10,7 @@
           <p class="title">{{ item.title }}</p>
           <p class="time-line">
             <span class="view">
-              <span class="view_icon"><img src="/static/icons/view.png"></span>
+              <span class="view_icon"><img src="/static/pic/lfx/view.png"></span>
               {{ item.date }}
             </span>
           </p>
@@ -23,7 +24,9 @@
 import { Tabbar, TabbarItem, XHeader, XButton, XImg } from 'vux'
 export default {
   mounted() {
-    this.$store.commit('UPDATE_PAGE_TITLE', '祝福语')
+    this.$store.commit('UPDATE_PAGE_TITLE', '祝福语');
+
+    // 加载列表
     this.getList();
   },
   data() {
@@ -38,7 +41,7 @@ export default {
         url: '/static/basicData/lfxList.json',
         showLoading: true,
         success: function (data) {
-          self.itemList = data.returnObject
+          self.itemList = data.returnObject;
         }
       })
     }
