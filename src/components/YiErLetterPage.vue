@@ -68,7 +68,7 @@ export default {
         // 设置页面标题
         this.$store.commit('UPDATE_PAGE_TITLE', this.resultData.title);
 
-        // 解析情诗内容
+        // 解析信件内容
         this.poemLines = this.parsePoemLines(this.resultData.poemLines);
 
         // 初始化音频
@@ -215,7 +215,7 @@ export default {
 
 /* ========== 容器 ========== */
 .love-letter-container {
-    min-height: 100vh;
+    height: 87vh;
     width: 100%;
     background: linear-gradient(145deg, #ffe6f0 0%, #ffd9e6 100%);
     display: flex;
@@ -423,7 +423,6 @@ export default {
 .envelope-icon {
     font-size: 48px;
     display: block;
-    margin-bottom: 6px;
     animation: bounceIcon 2s ease-in-out infinite;
 }
 
@@ -454,7 +453,6 @@ export default {
     background: rgba(255, 240, 245, 0.5);
     border-radius: 36px;
     padding: 20px 18px;
-    margin: 10px 0 20px;
     border: 1px solid rgba(255, 200, 215, 0.4);
 }
 

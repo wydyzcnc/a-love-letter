@@ -66,7 +66,7 @@ export default {
 }
 
 .activityIndex .activeItem .sbottom {
-  color: white;
+  color: #f9e4e4;
   position: absolute;
   bottom: 0px;
   padding: 10px;

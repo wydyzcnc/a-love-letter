@@ -53,7 +53,7 @@ export default {
   },
   data() {
     return {
-      backgroundImage: '/static/pic/indexPic.jpg',
+      backgroundImage: '/static/pic/home/homePic.jpg',
       title: '遇见美好',
       description: '每一帧风景，都是时光赠予的诗篇。\n愿你在喧嚣中，寻得内心的宁静。',
       menuItems: [
@@ -142,10 +142,10 @@ export default {
 
 .mobile-page {
   position: relative;
+  overflow: hidden;
   width: 100%;
-  min-height: 100vh;
+  height: 87vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  overflow-x: hidden;
   background-color: #f5f7fa;
 }
 

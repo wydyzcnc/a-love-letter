@@ -58,49 +58,48 @@ export default {
     name: 'MusicPlayer',
     data() {
         return {
-            // 模拟在线音乐数据（实际项目可替换为API请求）
             tracks: [
                 {
                     name: '传奇',
                     artist: '一二',
-                    cover: '/static/pic/chuanqi.jpg',
-                    url: '/static/mp3/chuanqi.mp3'
+                    cover: '/static/pic/home/chuanqi.jpg',
+                    url: '/static/mp3/home/chuanqi.mp3'
                 },
                 {
                     name: '东秋忘咪',
                     artist: '一二',
-                    cover: '/static/pic/dongqiuwangmi.jpg',
-                    url: '/static/mp3/dongqiuwangmi.mp3'
+                    cover: '/static/pic/home/dongqiuwangmi.jpg',
+                    url: '/static/mp3/home/dongqiuwangmi.mp3'
                 },
                 {
                     name: '稻香',
                     artist: '布布',
-                    cover: '/static/pic/daoxiang.jpg',
-                    url: '/static/mp3/daoxiang.mp3'
+                    cover: '/static/pic/home/daoxiang.jpg',
+                    url: '/static/mp3/home/daoxiang.mp3'
                 },
                 {
                     name: '宝贝',
                     artist: '布布',
-                    cover: '/static/pic/baobei.jpg',
-                    url: '/static/mp3/baobei.mp3'
+                    cover: '/static/pic/home/baobei.jpg',
+                    url: '/static/mp3/home/baobei.mp3'
                 },
                 {
                     name: '‌往后余生',
                     artist: '布布',
-                    cover: '/static/pic/wanghouyusheng.jpg',
-                    url: '/static/mp3/wanghouyusheng.mp3'
+                    cover: '/static/pic/home/wanghouyusheng.jpg',
+                    url: '/static/mp3/home/wanghouyusheng.mp3'
                 },
                 {
                     name: '做我老婆好不好',
                     artist: '布布',
-                    cover: '/static/pic/zwlphbh.jpg',
-                    url: '/static/mp3/zwlphbh.mp3'
+                    cover: '/static/pic/home/zwlphbh.jpg',
+                    url: '/static/mp3/home/zwlphbh.mp3'
                 },
                 {
                     name: 'you will be next billionaire',
                     artist: '一二喜欢的歌曲',
-                    cover: '/static/pic/moneycome.jpg',
-                    url: '/static/mp3/moneycome.mp3'
+                    cover: '/static/pic/home/moneycome.jpg',
+                    url: '/static/mp3/home/moneycome.mp3'
                 }
             ],
             currentTrackIndex: 0,
@@ -132,7 +131,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit('UPDATE_PAGE_TITLE', '一二布布音乐');
+        this.$store.commit('UPDATE_PAGE_TITLE', '一二布布歌曲');
 
         this.audio = new Audio();
         this.audio.preload = 'metadata';

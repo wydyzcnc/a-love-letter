@@ -10,6 +10,7 @@ import HomePage from '@/components/HomePage'
 import MusicPlayerPage from '@/components/MusicPlayerPage'
 import SnakeGamePage from '@/components/SnakeGamePage'
 import YiErLetterPage from '@/components/YiErLetterPage'
+import BuBuLetterPage from '@/components/BuBuLetterPage'
 
 
 Vue.use(VueRouter)
@@ -67,10 +68,15 @@ const router = new VueRouter({
 					component: SnakeGamePage
 				},
 				{
-					path: '/yier_letter',
+					path: '/yier-letter',
 					name: 'YiErLetterPage',
 					component: YiErLetterPage
 				},
+				{
+					path: '/bubu-letter',
+					name: 'BuBuLetterPage',
+					component: BuBuLetterPage
+				}
 			]
 		},
 	]

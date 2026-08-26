@@ -3,27 +3,34 @@
 
     <div class="classItems">
       <div class="item-box" v-for="(item, index) in courseList" :key="index">
-        <flexbox>
-          <flexbox-item :span="3">
-            <div class="item-icon">
-              <img src="../assets/images/timg.png" />
-            </div>
-          </flexbox-item>
+        <router-link
+          :to="{ path: '/bubu-letter', query: { title: item.title, letterTitle: item.letterTitle, musicUrl: item.musicUrl, poemLines: item.poemLines, date: item.date } }">
+          <flexbox>
+            <flexbox-item :span="3">
+              <div class="item-icon">
+                <img :src="item.img" />
+              </div>
+            </flexbox-item>
 
-          <flexbox-item>
-            <div class="top-name">
-              <flexbox>
-                <flexbox-item>
-                  <div>{{ item.name }}</div>
-                </flexbox-item>
-              </flexbox>
-            </div>
+            <flexbox-item>
+              <div class="top-name">
+                <flexbox>
+                  <flexbox-item>
+                    <div>{{ item.title }}</div>
+                  </flexbox-item>
 
-            <div class="bottom-cer">
-              <span>{{ item.certification }}</span>
-            </div>
-          </flexbox-item>
-        </flexbox>
+                  <flexbox-item :span="4">
+                    <x-button mini type="warn" action-type='button'>查看</x-button>
+                  </flexbox-item>
+                </flexbox>
+              </div>
+
+              <div class="bottom-cer">
+                <span>{{ item.date }}</span>
+              </div>
+            </flexbox-item>
+          </flexbox>
+        </router-link>
       </div>
     </div>
   </div>
@@ -54,12 +61,8 @@ export default {
       let self = this;
       this.baseAjax({
         url: '/static/basicData/bubuList.json',
-        params: {
-          date: ''
-        },
         showLoading: true,
         success: function (data) {
-          console.log(data)
           self.courseList = data.returnObject;
         }
       })
@@ -71,7 +74,6 @@ export default {
   }
 }
 </script>
-
 
 <style>
 .personalCourses .activeItem img {
@@ -105,7 +107,9 @@ export default {
 .personalCourses .top-name {
   border-bottom: 1px solid #eee;
   padding: 10px 0;
-  margin-right: 10px;
+  font-size: 18px;
+  color: #e6a311;
+  font-weight: 600;
 }
 
 .personalCourses .item-desc {

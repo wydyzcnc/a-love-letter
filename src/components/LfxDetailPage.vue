@@ -59,10 +59,11 @@
 		</div>
 
 		<!-- 播放音频按钮 -->
-		<div class="play-btn-wrapper" v-if="showPlayButton">
+		<div class="play-btn-wrapper">
 			<button class="play-btn" @click="playAudio">
 				<span class="play-icon">🎵</span>
-				<span class="play-text">点击播放音频</span>
+				<span class="play-text" v-if="showPlayButton">音频播放中</span>
+				<span class="play-text" v-if="!showPlayButton">播放/暂停音频</span>
 			</button>
 		</div>
 
@@ -122,7 +123,7 @@ export default {
 
 			// 音频控制
 			isAudioPlaying: false,
-			showPlayButton: false,
+			showPlayButton: true,
 		}
 	},
 
@@ -135,8 +136,10 @@ export default {
 				return;
 			}
 
-			// 如果已经在播放，不做任何操作
+			// 如果已经在播放，暂停
 			if (this.isAudioPlaying) {
+				audio.pause();
+				this.isAudioPlaying = false;
 				return;
 			}
 
@@ -153,9 +156,10 @@ export default {
 			if (playPromise !== undefined) {
 				playPromise.then(() => {
 					this.isAudioPlaying = true;
-					this.showPlayButton = false;
+					this.showPlayButton = true;
 				}).catch(error => {
 					this.isAudioPlaying = false;
+					this.showPlayButton = false;
 
 					// 播放失败时显示提示
 					this.$toast && this.$toast({
@@ -187,6 +191,9 @@ export default {
 
 		// 🎆 音乐结束时触发多次浪漫烟花雨
 		handleMusicEnded() {
+			this.showPlayButton = false;
+			this.isAudioPlaying = false;
+
 			// 重置队列，连续燃放6发，每发间隔 0.6 秒
 			this.fireworkQueue = [];
 			for (let i = 0; i < 20; i++) {
@@ -278,7 +285,7 @@ export default {
 .romantic-container {
 	position: relative;
 	width: 100vw;
-	height: 100vh;
+	height: 87vh;
 	overflow: hidden;
 	background: linear-gradient(180deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
 	font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -364,7 +371,7 @@ export default {
 /* 角色层 */
 .characters-wrapper {
 	position: absolute;
-	bottom: 10vh;
+	bottom: 12vh;
 	width: 100%;
 	height: 50vh;
 	z-index: 10;
@@ -470,7 +477,8 @@ export default {
 /* 文字气泡 */
 .message-box {
 	position: absolute;
-	bottom: 25vh;
+	bottom: 30vh;
+	padding: 16px 20px;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 20;
@@ -600,7 +608,7 @@ export default {
 /* 播放按钮样式 - 优雅浪漫设计 */
 .play-btn-wrapper {
 	position: absolute;
-	top: 20vh;
+	top: 10vh;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 30;
@@ -715,11 +723,6 @@ export default {
 
 	.play-btn .play-icon {
 		font-size: 1.2rem;
-	}
-
-	.message-box {
-		bottom: 22vh;
-		padding: 16px 20px;
 	}
 
 	.msg-content h3 {
