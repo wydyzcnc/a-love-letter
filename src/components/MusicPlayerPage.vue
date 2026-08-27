@@ -60,28 +60,87 @@ export default {
         return {
             tracks: [
                 {
-                    name: '传奇',
+                    name: '‌爱的就是你',
+                    artist: '布布',
+                    cover: '/static/pic/home/aidejiushini.jpg',
+                    url: '/static/mp3/home/aidejiushini.mp3'
+                },
+                {
+                    name: '‌半壶纱 ',
+                    artist: '一二',
+                    cover: '/static/pic/home/banhusha.jpg',
+                    url: '/static/mp3/home/banhusha.mp3'
+                },
+                {
+                    name: '‌宝贝',
+                    artist: '布布',
+                    cover: '/static/pic/home/baobei.jpg',
+                    url: '/static/mp3/home/baobei.mp3'
+                },
+                {
+                    name: '‌不想上班',
+                    artist: '一二',
+                    cover: '/static/pic/home/buxiangsahngban.jpg',
+                    url: '/static/mp3/home/buxiangsahngban.mp3'
+                },
+                {
+                    name: '‌抽离',
+                    artist: '一二',
+                    cover: '/static/pic/home/chouli.jpg',
+                    url: '/static/mp3/home/chouli.mp3'
+                },
+                {
+                    name: '‌传奇',
                     artist: '一二',
                     cover: '/static/pic/home/chuanqi.jpg',
                     url: '/static/mp3/home/chuanqi.mp3'
                 },
                 {
-                    name: '东秋忘咪',
+                    name: '‌人间',
                     artist: '一二',
-                    cover: '/static/pic/home/dongqiuwangmi.jpg',
-                    url: '/static/mp3/home/dongqiuwangmi.mp3'
+                    cover: '/static/pic/home/renjian.jpg',
+                    url: '/static/mp3/home/renjian.mp3'
                 },
                 {
-                    name: '稻香',
+                    name: '‌大花轿',
+                    artist: '布布',
+                    cover: '/static/pic/home/dahuajiao.jpg',
+                    url: '/static/mp3/home/dahuajiao.mp3'
+                },
+                {
+                    name: '‌稻香',
                     artist: '布布',
                     cover: '/static/pic/home/daoxiang.jpg',
                     url: '/static/mp3/home/daoxiang.mp3'
                 },
                 {
-                    name: '宝贝',
+                    name: '‌东秋忘咪',
+                    artist: '一二',
+                    cover: '/static/pic/home/dongqiuwangmi.jpg',
+                    url: '/static/mp3/home/dongqiuwangmi.mp3'
+                },
+                {
+                    name: '‌还有我',
                     artist: '布布',
-                    cover: '/static/pic/home/baobei.jpg',
-                    url: '/static/mp3/home/baobei.mp3'
+                    cover: '/static/pic/home/haiyouwo.jpg',
+                    url: '/static/mp3/home/haiyouwo.mp3'
+                },
+                {
+                    name: '‌欧若拉',
+                    artist: '一二',
+                    cover: '/static/pic/home/ouruola.jpg',
+                    url: '/static/mp3/home/ouruola.mp3'
+                },
+                {
+                    name: '‌起风了',
+                    artist: '布布',
+                    cover: '/static/pic/home/qifengle.jpg',
+                    url: '/static/mp3/home/qifengle.mp3'
+                }, {
+                    name: '‌忍住',
+                    artist: '一二',
+                    cover: '/static/pic/home/renzhu.jpg',
+                    url: '/static/mp3/home/renzhu.mp3'
                 },
                 {
                     name: '‌往后余生',
@@ -90,14 +149,32 @@ export default {
                     url: '/static/mp3/home/wanghouyusheng.mp3'
                 },
                 {
-                    name: '做我老婆好不好',
+                    name: '‌西海情歌',
+                    artist: '布布',
+                    cover: '/static/pic/home/xihaiqingge.jpg',
+                    url: '/static/mp3/home/xihaiqingge.mp3'
+                },
+                {
+                    name: '‌纸短情长',
+                    artist: '布布',
+                    cover: '/static/pic/home/zhiduanqingchang.jpg',
+                    url: '/static/mp3/home/zhiduanqingchang.mp3'
+                },
+                {
+                    name: '‌最爱',
+                    artist: '布布',
+                    cover: '/static/pic/home/zuiai.jpg',
+                    url: '/static/mp3/home/zuiai.mp3'
+                },
+                {
+                    name: '‌做我老婆好不好',
                     artist: '布布',
                     cover: '/static/pic/home/zwlphbh.jpg',
                     url: '/static/mp3/home/zwlphbh.mp3'
                 },
                 {
-                    name: 'you will be next billionaire',
-                    artist: '一二喜欢的歌曲',
+                    name: '‌you will be next billionaire',
+                    artist: '一二爱听的歌曲',
                     cover: '/static/pic/home/moneycome.jpg',
                     url: '/static/mp3/home/moneycome.mp3'
                 }

@@ -5,12 +5,13 @@ import MainHomePage from '@/components/MainHomePage'
 import LfxListPage from '@/components//LfxListPage'
 import LfxDetailPage from '@/components/LfxDetailPage'
 import YiErListPage from '@/components/YiErListPage'
+import YiErLetterPage from '@/components/YiErLetterPage'
 import BuBuListPage from '@/components/BuBuListPage'
+import BuBuLetterPage from '@/components/BuBuLetterPage'
 import HomePage from '@/components/HomePage'
 import MusicPlayerPage from '@/components/MusicPlayerPage'
 import SnakeGamePage from '@/components/SnakeGamePage'
-import YiErLetterPage from '@/components/YiErLetterPage'
-import BuBuLetterPage from '@/components/BuBuLetterPage'
+import FlightGamePage from '@/components/FlightGamePage'
 
 
 Vue.use(VueRouter)
@@ -48,9 +49,19 @@ const router = new VueRouter({
 					component: YiErListPage
 				},
 				{
+					path: '/yier-letter',
+					name: 'YiErLetterPage',
+					component: YiErLetterPage
+				},
+				{
 					path: '/bubu-list',
 					name: 'BuBuListPage',
 					component: BuBuListPage
+				},
+				{
+					path: '/bubu-letter',
+					name: 'BuBuLetterPage',
+					component: BuBuLetterPage
 				},
 				{
 					path: '/love-lfx',
@@ -68,14 +79,9 @@ const router = new VueRouter({
 					component: SnakeGamePage
 				},
 				{
-					path: '/yier-letter',
-					name: 'YiErLetterPage',
-					component: YiErLetterPage
-				},
-				{
-					path: '/bubu-letter',
-					name: 'BuBuLetterPage',
-					component: BuBuLetterPage
+					path: '/flight-game',
+					name: 'FlightGamePage',
+					component: FlightGamePage
 				}
 			]
 		},

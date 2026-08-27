@@ -25,6 +25,7 @@
                     </p>
                 </div>
                 <div class="signature">—— 永远爱你的布布</div>
+                <div class="signa_date">{{ resultData.date }}</div>
             </div>
         </div>
 
@@ -56,12 +57,17 @@ export default {
         this.poemLines = this.parsePoemLines(this.resultData.poemLines);
 
         // 尝试自动播放
-        this.$refs.bgAudio.play().then(() => {
+        const audio = this.$refs.bgAudio;
+        if (!audio) {
+            console.error('音频元素不存在');
+            return;
+        }
+        audio.play().then(() => {
             this.isPlaying = true;
         }).catch(() => {
             // 若自动播放被拦截，点击页面任意位置触发播放
             const playAudio = () => {
-                this.$refs.bgAudio.play();
+                audio.play();
                 this.isPlaying = true;
                 document.removeEventListener('touchstart', playAudio);
                 document.removeEventListener('click', playAudio);
@@ -115,7 +121,7 @@ export default {
 }
 
 .love-letter {
-    height: 87vh;
+    height: 86vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -252,6 +258,14 @@ export default {
     font-style: italic;
     border-top: 1px solid #dac8b8;
     padding-top: 18px;
+    letter-spacing: 3px;
+}
+
+.signa_date {
+    text-align: right;
+    font-size: 12px;
+    color: #6a4f3a;
+    font-style: italic;
     letter-spacing: 3px;
 }
 

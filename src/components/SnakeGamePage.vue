@@ -42,7 +42,7 @@ export default {
         };
     },
     mounted() {
-        this.$store.commit('UPDATE_PAGE_TITLE', '贪吃小蛇游戏');
+        this.$store.commit('UPDATE_PAGE_TITLE', '贪吃小蛇');
         this.$nextTick(() => {
             this.updateCanvasSize();
         });

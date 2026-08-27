@@ -5,10 +5,10 @@
 	"returnObject": [
 		{
 			"title": "你是我写过最美的诗篇",
-			"img": "/static/pic/yier/ye001.jpg",
+			"img": "/static/pic/yier/ye004.jpg",
 			"date": "2026-08-24",
 			"letterTitle": "给布布的一封信",
-			"musicUrl": "/static/mp3/yier/yieraudio01.mp3",
+			"musicUrl": "/static/mp3/yier/ye004.mp3",
 			"poemLines": [
 				"你是我写过最美的诗篇，",
 				"字里行间都是你的笑颜。",
@@ -22,10 +22,10 @@
 		},
 		{
 			"title": "不愿和你有一秒遗憾",
-			"img": "/static/pic/yier/ye002.jpg",
+			"img": "/static/pic/yier/ye003.jpg",
 			"date": "2026-08-23",
 			"letterTitle": "给布布的一封信",
-			"musicUrl": "/static/mp3/yier/yieraudio02.mp3",
+			"musicUrl": "/static/mp3/yier/ye003.mp3",
 			"poemLines": [
 				"你今天特别讨，",
 				"讨人喜欢和百看不厌。",
@@ -41,11 +41,29 @@
 			]
 		},
 		{
+			"title": "七夕快乐",
+			"img": "/static/pic/yier/ye002.jpg",
+			"date": "2026-08-19",
+			"letterTitle": "给布布的一封信",
+			"musicUrl": "/static/mp3/yier/ye002.mp3",
+			"poemLines": [
+				"“七”待已久，“夕”望是你，",
+				"欢喜是你，喜欢是你！",
+				"不止七夕，陪伴你每个朝夕！",
+				"星河万顷，人间朝夕，",
+				"目之所及，满心是你。",
+				"山河远阔，人间烟火，",
+				"无一是你，无一不是你。",
+				"晨光写诗，落款是你。",
+				"是晚风，是晚霞，是心跳，是无可替代。"
+			]
+		},
+		{
 			"title": "你是我的整个世界",
-			"img": "/static/pic/yier/ye003.jpg",
+			"img": "/static/pic/yier/ye001.jpg",
 			"date": "2026-07-21",
 			"letterTitle": "给布布的一封信",
-			"musicUrl": "/static/mp3/yier/yieraudio03.mp3",
+			"musicUrl": "/static/mp3/yier/ye001.mp3",
 			"poemLines": [
 				"如果全世界都对你恶语相加，",
 				"那么我对你说上一世情话。",

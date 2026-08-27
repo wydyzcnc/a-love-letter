@@ -58,29 +58,23 @@ export default {
       description: '每一帧风景，都是时光赠予的诗篇。\n愿你在喧嚣中，寻得内心的宁静。',
       menuItems: [
         {
-          label: '一二布布版音乐',
+          label: '一二布布歌曲',
           icon: '🎵',
           action: 'music-player',
           route: '/music-player'
         },
         {
-          label: '贪吃小蛇游戏',
+          label: '贪吃小蛇',
           icon: '🐍',
           action: 'snake-game',
           route: '/snake-game'
         },
-        // {
-        //   label: '消消乐',
-        //   icon: '👤',
-        //   action: 'profile',
-        //   route: '/profile'
-        // },
-        // {
-        //   label: '设置',
-        //   icon: '⚙️',
-        //   action: 'settings',
-        //   route: '/settings'
-        // }
+        {
+          label: '飞行游戏',
+          icon: '🛩️',
+          action: 'flight-game',
+          route: '/flight-game'
+        },
       ],
       isSidebarOpen: false,
       toastMessage: '',

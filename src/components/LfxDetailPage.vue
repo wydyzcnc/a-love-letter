@@ -285,7 +285,7 @@ export default {
 .romantic-container {
 	position: relative;
 	width: 100vw;
-	height: 87vh;
+	height: 86vh;
 	overflow: hidden;
 	background: linear-gradient(180deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
 	font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;

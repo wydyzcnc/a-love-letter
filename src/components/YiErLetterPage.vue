@@ -215,7 +215,7 @@ export default {
 
 /* ========== 容器 ========== */
 .love-letter-container {
-    height: 87vh;
+    height: 86vh;
     width: 100%;
     background: linear-gradient(145deg, #ffe6f0 0%, #ffd9e6 100%);
     display: flex;
