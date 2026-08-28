@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌做我老婆好不好',
+                    artist: '布布',
+                    cover: '/static/pic/home/zwlphbh.jpg',
+                    url: '/static/mp3/home/zwlphbh.mp3'
+                },
+                {
                     name: '‌you will be next billionaire',
                     artist: '一二爱听的歌曲',
                     cover: '/static/pic/home/moneycome.jpg',
