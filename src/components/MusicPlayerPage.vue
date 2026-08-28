@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌抽离',
+                    artist: '一二',
+                    cover: '/static/pic/home/chouli.jpg',
+                    url: '/static/mp3/home/chouli.mp3'
+                },
+                {
                     name: '‌传奇',
                     artist: '一二',
                     cover: '/static/pic/home/chuanqi.jpg',
