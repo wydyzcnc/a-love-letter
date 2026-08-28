@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌东秋忘咪',
+                    artist: '一二',
+                    cover: '/static/pic/home/dongqiuwangmi.jpg',
+                    url: '/static/mp3/home/dongqiuwangmi.mp3'
+                },
+                {
                     name: '‌还有我',
                     artist: '布布',
                     cover: '/static/pic/home/haiyouwo.jpg',
