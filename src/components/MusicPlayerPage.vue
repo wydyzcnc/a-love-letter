@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌爱的就是你',
+                    artist: '布布',
+                    cover: '/static/pic/home/aidejiushini.jpg',
+                    url: '/static/mp3/home/aidejiushini.mp3'
+                },
+                {
                     name: '‌半壶纱 ',
                     artist: '一二',
                     cover: '/static/pic/home/banhusha.jpg',
