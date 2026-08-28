@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌稻香',
+                    artist: '布布',
+                    cover: '/static/pic/home/daoxiang.jpg',
+                    url: '/static/mp3/home/daoxiang.mp3'
+                },
+                {
                     name: '‌东秋忘咪',
                     artist: '一二',
                     cover: '/static/pic/home/dongqiuwangmi.jpg',
