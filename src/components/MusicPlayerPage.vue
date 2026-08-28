@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌大花轿',
+                    artist: '布布',
+                    cover: '/static/pic/home/dahuajiao.jpg',
+                    url: '/static/mp3/home/dahuajiao.mp3'
+                },
+                {
                     name: '‌稻香',
                     artist: '布布',
                     cover: '/static/pic/home/daoxiang.jpg',
