@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌不想上班',
+                    artist: '一二',
+                    cover: '/static/pic/home/buxiangsahngban.jpg',
+                    url: '/static/mp3/home/buxiangsahngban.mp3'
+                },
+                {
                     name: '‌抽离',
                     artist: '一二',
                     cover: '/static/pic/home/chouli.jpg',
