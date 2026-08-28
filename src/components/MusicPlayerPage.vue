@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌往后余生',
+                    artist: '布布',
+                    cover: '/static/pic/home/wanghouyusheng.jpg',
+                    url: '/static/mp3/home/wanghouyusheng.mp3'
+                },
+                {
                     name: '‌西海情歌',
                     artist: '布布',
                     cover: '/static/pic/home/xihaiqingge.jpg',
