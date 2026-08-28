@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌传奇',
+                    artist: '一二',
+                    cover: '/static/pic/home/chuanqi.jpg',
+                    url: '/static/mp3/home/chuanqi.mp3'
+                },
+                {
                     name: '‌人间',
                     artist: '一二',
                     cover: '/static/pic/home/renjian.jpg',
