@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌人间',
+                    artist: '一二',
+                    cover: '/static/pic/home/renjian.jpg',
+                    url: '/static/mp3/home/renjian.mp3'
+                },
+                {
                     name: '‌大花轿',
                     artist: '布布',
                     cover: '/static/pic/home/dahuajiao.jpg',
