@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌起风了',
+                    artist: '布布',
+                    cover: '/static/pic/home/qifengle.jpg',
+                    url: '/static/mp3/home/qifengle.mp3'
+                },
+                {
                     name: '‌忍住',
                     artist: '一二',
                     cover: '/static/pic/home/renzhu.jpg',
