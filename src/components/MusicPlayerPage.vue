@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌西海情歌',
+                    artist: '布布',
+                    cover: '/static/pic/home/xihaiqingge.jpg',
+                    url: '/static/mp3/home/xihaiqingge.mp3'
+                },
+                {
                     name: '‌纸短情长',
                     artist: '布布',
                     cover: '/static/pic/home/zhiduanqingchang.jpg',
