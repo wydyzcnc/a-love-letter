@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌还有我',
+                    artist: '布布',
+                    cover: '/static/pic/home/haiyouwo.jpg',
+                    url: '/static/mp3/home/haiyouwo.mp3'
+                },
+                {
                     name: '‌欧若拉',
                     artist: '一二',
                     cover: '/static/pic/home/ouruola.jpg',
