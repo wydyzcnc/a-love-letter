@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌欧若拉',
+                    artist: '一二',
+                    cover: '/static/pic/home/ouruola.jpg',
+                    url: '/static/mp3/home/ouruola.mp3'
+                },
+                {
                     name: '‌起风了',
                     artist: '布布',
                     cover: '/static/pic/home/qifengle.jpg',
