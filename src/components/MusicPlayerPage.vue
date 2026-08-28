@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌忍住',
+                    artist: '一二',
+                    cover: '/static/pic/home/renzhu.jpg',
+                    url: '/static/mp3/home/renzhu.mp3'
+                },
+                {
                     name: '‌往后余生',
                     artist: '布布',
                     cover: '/static/pic/home/wanghouyusheng.jpg',
