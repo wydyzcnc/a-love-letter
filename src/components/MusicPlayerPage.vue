@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌最爱',
+                    artist: '布布',
+                    cover: '/static/pic/home/zuiai.jpg',
+                    url: '/static/mp3/home/zuiai.mp3'
+                },
+                {
                     name: '‌做我老婆好不好',
                     artist: '布布',
                     cover: '/static/pic/home/zwlphbh.jpg',
