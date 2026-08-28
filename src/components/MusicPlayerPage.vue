@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌宝贝',
+                    artist: '布布',
+                    cover: '/static/pic/home/baobei.jpg',
+                    url: '/static/mp3/home/baobei.mp3'
+                },
+                {
                     name: '‌不想上班',
                     artist: '一二',
                     cover: '/static/pic/home/buxiangsahngban.jpg',
