@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌纸短情长',
+                    artist: '布布',
+                    cover: '/static/pic/home/zhiduanqingchang.jpg',
+                    url: '/static/mp3/home/zhiduanqingchang.mp3'
+                },
+                {
                     name: '‌最爱',
                     artist: '一二',
                     cover: '/static/pic/home/zuiai.jpg',
