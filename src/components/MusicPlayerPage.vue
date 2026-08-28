@@ -61,7 +61,7 @@ export default {
             tracks: [
                 {
                     name: '‌最爱',
-                    artist: '布布',
+                    artist: '一二',
                     cover: '/static/pic/home/zuiai.jpg',
                     url: '/static/mp3/home/zuiai.mp3'
                 },
