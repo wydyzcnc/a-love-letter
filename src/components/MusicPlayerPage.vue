@@ -60,6 +60,12 @@ export default {
         return {
             tracks: [
                 {
+                    name: '‌半壶纱 ',
+                    artist: '一二',
+                    cover: '/static/pic/home/banhusha.jpg',
+                    url: '/static/mp3/home/banhusha.mp3'
+                },
+                {
                     name: '‌宝贝',
                     artist: '布布',
                     cover: '/static/pic/home/baobei.jpg',
